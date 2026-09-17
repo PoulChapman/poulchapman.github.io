@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- (c) 2026 by Asher Tou and Paul Chapman. You may use the software only to play the game. You may not copy, modify, distribute, or reverse engineer the software or its source code without prior written consent. -->
+<!--
+(c) 2026 by Asher Tou and Paul Chapman. You may use the software only to play the game. You may not copy, modify, distribute, or reverse engineer the software or its source code without prior written consent.
+-->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -515,11 +517,40 @@ h1 {
   font-size: 0.85rem;
 }
 
+.feedback-button {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  border: 1px solid var(--field-border);
+  border-radius: 10px;
+  background: var(--field-bg);
+  color: var(--field-text);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.feedback-button:hover {
+  background: var(--ghost);
+  transform: translateY(-1px);
+}
+
+.feedback-button svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .setting-row, .toggle-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  min-height: 48px;
   border: 1px solid var(--panel-border);
   background: var(--field-bg);
   color: var(--field-text);
@@ -685,10 +716,6 @@ input[type="checkbox"] {
     grid-template-columns: 1fr 1fr;
     gap: 8px;
   }
-
-  .setting-row, .toggle-row {
-    min-height: 44px;
-  }
 }
 
 @media (min-width: 761px) and (max-height: 760px) {
@@ -699,11 +726,9 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 420px) {
-  .top-actions,
   .settings-panel {
     grid-template-columns: 1fr;
   }
-
 }
 
 
@@ -772,6 +797,19 @@ input[type="checkbox"] {
             <option value="ocean">Ocean</option>
           </select>
         </div>
+
+        <a
+          class="feedback-button"
+          href="mailto:WordMasterGame@outlook.com?subject=Feedback%3A%20"
+          title="Send Feedback"
+          aria-label="Send Feedback"
+        >
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M17 21h18a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H24l-7 6v-6h-3a5 5 0 0 1-5-5v-8a5 5 0 0 1 5-5h3Z" />
+            <path d="M8 25H4V13h5m0 10h6a3 3 0 0 0 3-3 3 3 0 0 0 0-6h-1 2a3 3 0 0 0 0-6h-5l2-3a4 4 0 0 0-1-5l-1-1-4 8-3 3H4v13h5Z" />
+            <path d="M22 28h13M22 33h10" />
+          </svg>
+        </a>
       </aside>
     </main>
 
